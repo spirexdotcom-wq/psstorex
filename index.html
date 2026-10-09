@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSSTORE - Katalog HP & Garansi Resmi</title>
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #f7f5f0;
+            --primary-orange: #f97316;
+            --dark-orange: #ea580c;
+            --whatsapp-green: #25d366;
+            --text-dark: #1c1917;
+            --text-gray: #78716c;
+            --card-bg: #ffffff;
+            --border-color: #e7e5e4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* Container agar tampil rapi ala mobile view di tengah */
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background-color: var(--bg-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-area h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .menu-icon {
+            font-size: 20px;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(247, 245, 240, 0.5) 100%);
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .hero p {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 10px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--text-dark);
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin-top: 10px;
+        }
+
+        .stat-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .stat-item p {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            font-weight: 600;
+            color: #059669;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .section-link {
+            font-size: 13px;
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Brand Grid */
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .brand-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .brand-card.active {
+            border-color: var(--primary-orange);
+            background-color: #fff7ed;
+        }
+
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #fff7ed;
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 10px auto;
+            font-size: 18px;
+        }
+
+        .brand-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .brand-card p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .product-img-container {
+            position: relative;
+            background-color: #f3f4f6;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: #059669;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .product-badge.promo {
+            background-color: #0d9488;
+        }
+
+        .product-img-container img {
+            max-height: 80%;
+            max-width: 80%;
+            object-fit: contain;
+        }
+
+        .product-info {
+            padding: 16px;
+        }
+
+        .product-category {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-gray);
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-specs {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+        }
+
+        .product-specs span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .product-pricing {
+            margin-bottom: 16px;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: #c2410c;
+        }
+
+        .original-price {
+            font-size: 13px;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            margin-left: 8px;
+        }
+
+        /* Banner Cards (Trade-in & Cicilan) */
+        .banner-card-orange {
+            background-color: var(--primary-orange);
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-card-green {
+            background-color: #059669;
+            color: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+
+        .banner-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .banner-desc {
+            font-size: 13px;
+            margin-bottom: 16px;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .banner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: white;
+            color: var(--text-dark);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Features List */
+        .feature-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            background-color: #d1fae5;
+            color: #059669;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .feature-content h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .feature-content p {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Testimonials */
+        .testimonial-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+
+        .stars {
+            color: #f59e0b;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-text {
+            font-size: 14px;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+
+        .customer-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .customer-avatar {
+            width: 32px;
+            height: 32px;
+            background-color: #f3f4f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .customer-details h5 {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .customer-details p {
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        /* Tambahan Bagian Bawah Baru (Contact Card Dark & Footer) */
+        .contact-card-dark {
+            background-color: #0c0a09;
+            color: white;
+            padding: 24px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card-dark .section-subtitle {
+            color: #059669;
+        }
+
+        .contact-card-dark .section-title {
+            color: white;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card-dark p {
+            font-size: 13px;
+            color: #a8a29e;
+            margin-bottom: 20px;
+        }
+
+        .contact-item-box {
+            background-color: #1c1917;
+            border: 1px solid #292524;
+            padding: 14px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            text-decoration: none;
+            color: white;
+        }
+
+        .contact-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-item-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .bg-wa { background-color: #059669; color: white; }
+        .bg-phone { background-color: #f97316; color: white; }
+        .bg-clock { background-color: #78716c; color: white; }
+
+        .contact-item-info span {
+            font-size: 11px;
+            color: #a8a29e;
+            display: block;
+        }
+
+        .contact-item-info h5 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .contact-item-dark-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            background-color: var(--primary-orange);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+
+        /* Footer Style */
+        .main-footer {
+            background-color: #0c0a09;
+            color: white;
+            padding: 30px 20px 20px 20px;
+            margin-top: 20px;
+        }
+
+        .footer-col {
+            margin-bottom: 24px;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: #a8a29e;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #a8a29e;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .footer-contact-info i {
+            color: var(--primary-orange);
+            width: 16px;
+        }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid #292524;
+            margin: 20px 0 15px 0;
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: #78716c;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon-btn {
+            width: 36px;
+            height: 36px;
+            background-color: #1c1917;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a8a29e;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo-area">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=100&auto=format&fit=crop&q=80" alt="Logo">
+                <h1>Pstore</h1>
+            </div>
+            <div class="menu-icon">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="location-badge">
+                <i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia · Kirim Seluruh Indonesia
+            </div>
+            <h2>Temukan HP Impianmu dengan Harga Terbaik</h2>
+            <p>Katalog lengkap handphone baru bergaransi resmi. Pilih HP favoritmu, lihat harganya, lalu hubungi kami langsung untuk pemesanan cepat.</p>
+            
+            <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20melihat%20katalog%20HP" target="_blank" class="btn-primary">
+                <i class="fa-solid fa-mobile-screen-button"></i> Lihat Katalog HP
+            </a>
+            <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20konsultasi%20gratis" target="_blank" class="btn-secondary">
+                <i class="fa-brands fa-whatsapp"></i> Konsultasi Gratis
+            </a>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <h3>5.000+</h3>
+                    <p>HP Terjual</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.9/5</h3>
+                    <p>Rating Pembeli</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Garansi Resmi</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Section -->
+        <section class="section">
+            <div class="section-subtitle">Jelajahi</div>
+            <div class="section-header" style="margin-bottom: 10px;">
+                <h3 class="section-title">Belanja Berdasarkan Brand</h3>
+            </div>
+            <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 15px;">Banyak pilihan brand favorit, dari flagship hingga HP hemat untuk kebutuhan sehari-hari.</p>
+
+            <div class="brand-grid">
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-brands fa-apple"></i></div>
+                    <h4>Apple</h4>
+                    <p>24 produk</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Samsung</h4>
+                    <p>31 produk</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Xiaomi</h4>
+                    <p>28 produk</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Oppo</h4>
+                    <p>19 produk</p>
+                </div>
+                <div class="brand-card active">
+                    <div class="brand-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Vivo</h4>
+                    <p>17 produk</p>
+                </div>
+                <div class="brand-card">
+                    <div class="brand-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h4>Realme</h4>
+                    <p>15 produk</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Produk Unggulan Section -->
+        <section class="section">
+            <div class="section-subtitle">Pilihan Terbaik</div>
+            <div class="section-header">
+                <h3 class="section-title">HP Unggulan Bulan Ini</h3>
+            </div>
+            <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20minta%20daftar%20harga%20lengkap" target="_blank" class="section-link" style="margin-bottom: 15px;">
+                Minta Daftar Harga Lengkap <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <!-- Produk 1 -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <span class="product-badge">Terlaris</span>
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=500&auto=format&fit=crop&q=80" alt="iPhone 15 Pro Max">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">APPLE</div>
+                    <div class="product-name">iPhone 15 Pro Max</div>
+                    <div class="product-specs">
+                        <span><i class="fa-solid fa-hard-drive"></i> 256GB</span>
+                        <span><i class="fa-solid fa-shield-check"></i> Baru</span>
+                        <span><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.9</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="current-price">Rp 21.999.000</span>
+                        <span class="original-price">Rp 24.999.000</span>
+                    </div>
+                    <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20tanya%20stok%20iPhone%2015%20Pro%20Max" target="_blank" class="btn-primary" style="margin-bottom:0;">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Stok
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 2 -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <span class="product-badge promo">Promo</span>
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500&auto=format&fit=crop&q=80" alt="Samsung Galaxy S24 Ultra">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">SAMSUNG</div>
+                    <div class="product-name">Samsung Galaxy S24 Ultra</div>
+                    <div class="product-specs">
+                        <span><i class="fa-solid fa-hard-drive"></i> 256GB</span>
+                        <span><i class="fa-solid fa-shield-check"></i> Baru</span>
+                        <span><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.8</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="current-price">Rp 19.999.000</span>
+                        <span class="original-price">Rp 22.499.000</span>
+                    </div>
+                    <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20tanya%20stok%20Samsung%20Galaxy%20S24%20Ultra" target="_blank" class="btn-primary" style="margin-bottom:0;">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Stok
+                    </a>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="product-card">
+                <div class="product-img-container">
+                    <span class="product-badge">Baru</span>
+                    <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500&auto=format&fit=crop&q=80" alt="Xiaomi 14 5G">
+                </div>
+                <div class="product-info">
+                    <div class="product-category">XIAOMI</div>
+                    <div class="product-name">Xiaomi 14 5G</div>
+                    <div class="product-specs">
+                        <span><i class="fa-solid fa-hard-drive"></i> 256GB</span>
+                        <span><i class="fa-solid fa-shield-check"></i> Baru</span>
+                        <span><i class="fa-solid fa-star" style="color: #f59e0b;"></i> 4.7</span>
+                    </div>
+                    <div class="product-pricing">
+                        <span class="current-price">Rp 11.999.000</span>
+                        <span class="original-price">Rp 13.499.000</span>
+                    </div>
+                    <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20tanya%20stok%20Xiaomi%2014%205G" target="_blank" class="btn-primary" style="margin-bottom:0;">
+                        <i class="fa-brands fa-whatsapp"></i> Tanya Stok
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner Trade-In & Cicilan -->
+        <section class="section" style="padding-top: 0;">
+            <div class="banner-card-orange">
+                <div class="banner-tag">TUKAR TAMBAH HP LAMA DENGAN HARGA TERBAIK</div>
+                <div class="banner-title">Trade-In HP Lamamu</div>
+                <div class="banner-desc">Bawa HP lamamu, kami hitung langsung nilainya dan potong ke harga HP baru pilihanmu.</div>
+                <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20mau%20tanya%20nilai%20tukar%20tambah%20HP" target="_blank" class="banner-btn">
+                    Tanya Nilai Tukar <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="banner-card-green">
+                <div class="banner-tag">TENANG TANPA KARTU KREDIT</div>
+                <div class="banner-title">Cicilan 0%</div>
+                <div class="banner-desc">Beli HP impian dengan cicilan ringan 0% hingga 12 bulan. Syarat mudah, pengajuan cepat.</div>
+                <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20mengajukan%20cicilan" target="_blank" class="banner-btn">
+                    Ajukan Cicilan <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kenapa Pstore -->
+        <section class="section" style="padding-top: 0;">
+            <div class="section-subtitle">Kenapa Pstore</div>
+            <div class="section-header">
+                <h3 class="section-title">Belanja HP Jadi Lebih Tenang</h3>
+            </div>
+            <p style="font-size: 13px; color: var(--text-gray); margin-bottom: 15px;">Kami ingin setiap pembeli merasa aman dan nyaman. Inilah yang membuat ribuan pelanggan mempercayakan pembelian HP-nya kepada kami.</p>
+
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="feature-content">
+                    <h4>Garansi Resmi</h4>
+                    <p>Semua unit HP baru bergaransi resmi distributor Indonesia, jadi kamu tenang saat membeli.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-truck-fast"></i></div>
+                <div class="feature-content">
+                    <h4>Kirim Cepat & Aman</h4>
+                    <p>Pengiriman ke seluruh Indonesia dengan packing aman dan bisa COD untuk area tertentu.</p>
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-icon"><i class="fa-solid fa-wallet"></i></div>
+                <div class="feature-content">
+                    <h4>Harga Terjangkau</h4>
+                    <p>Harga bersaing dan transparan, tersedia juga pilihan cicilan tanpa kartu kredit.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimoni Pelanggan -->
+        <section class="section" style="padding-top: 0;">
+            <div class="section-subtitle">Kata Pelanggan</div>
+            <div class="section-header" style="margin-bottom: 15px;">
+                <h3 class="section-title">Dipercaya Ribuan Pembeli</h3>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"Prosesnya cepat banget, HP sampai sehari setelah transfer. Barang baru dan segel utuh. Recommended!"</p>
+                <div class="customer-info">
+                    <div class="customer-avatar">A</div>
+                    <div class="customer-details">
+                        <h5>Andi Pratama</h5>
+                        <p>Jakarta</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-box">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="testimonial-text">"Dibantu pilih HP sesuai budget. Penjelasannya detail dan sabar. Harga juga paling murah dibanding toko lain."</p>
+                <div class="customer-info">
+                    <div class="customer-avatar">S</div>
+                    <div class="customer-details">
+                        <h5>Siti Nurhaliza</h5>
+                        <p>Bandung</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hubungi Kami (Bagian Tambahan Baru Sesuai Gambar) -->
+        <section class="section" style="padding-top: 0;">
+            <div class="contact-card-dark">
+                <div class="section-subtitle">Hubungi Kami</div>
+                <h3 class="section-title">Siap Bantu Kamu Pilih HP</h3>
+                <p>Punya pertanyaan soal harga, stok, atau ingin konsultasi pilihan HP? Hubungi kami langsung, kami balas dengan cepat.</p>
+
+                <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20bertanya" target="_blank" class="contact-item-box">
+                    <div class="contact-item-left">
+                        <div class="contact-item-icon bg-wa"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="contact-item-info">
+                            <span>WhatsApp</span>
+                            <h5>0812-2836-7550</h5>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" style="color: #a8a29e;"></i>
+                </a>
+
+                <a href="tel:081228367550" class="contact-item-box">
+                    <div class="contact-item-left">
+                        <div class="contact-item-icon bg-phone"><i class="fa-solid fa-phone"></i></div>
+                        <div class="contact-item-info">
+                            <span>Telepon</span>
+                            <h5>0812-2836-7550</h5>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" style="color: #a8a29e;"></i>
+                </a>
+
+                <div class="contact-item-box" style="cursor: default;">
+                    <div class="contact-item-left">
+                        <div class="contact-item-icon bg-clock"><i class="fa-solid fa-clock"></i></div>
+                        <div class="contact-item-info">
+                            <span>Jam Operasional</span>
+                            <h5>Senin – Sabtu, 09.00 - 21.00 WIB</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20ingin%20mulai%20chat%20sekarang" target="_blank" class="contact-item-dark-btn">
+                    <i class="fa-solid fa-comment-dots"></i> Mulai Chat Sekarang
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer (Bagian Paling Bawah Sesuai Gambar) -->
+        <footer class="main-footer">
+            <div class="footer-col">
+                <h4>Kategori</h4>
+                <ul>
+                    <li><a href="#">HP Baru</a></li>
+                    <li><a href="#">HP Second</a></li>
+                    <li><a href="#">Aksesoris</a></li>
+                    <li><a href="#">Promo Bulan Ini</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Garansi Resmi</a></li>
+                    <li><a href="#">Tukar Tambah</a></li>
+                    <li><a href="#">Cicilan 0%</a></li>
+                    <li><a href="#">Kirim Seluruh Indonesia</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <div class="footer-contact-info">
+                    <i class="fa-solid fa-phone"></i> 0812-2836-7550
+                </div>
+                <div class="footer-contact-info">
+                    <i class="fa-solid fa-envelope"></i> halo@pstore.id
+                </div>
+                <div class="footer-contact-info">
+                    <i class="fa-solid fa-location-dot"></i> Jakarta, Indonesia
+                </div>
+                <div class="footer-contact-info">
+                    <i class="fa-solid fa-clock"></i> Senin – Sabtu, 09.00 - 21.00 WIB
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Pstore. Semua hak dilindungi.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/6281228367550" target="_blank" class="social-icon-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-icon-btn"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Jendela Mengapung Logo WhatsApp -->
+        <a href="https://wa.me/6281228367550?text=Halo%20PSSTORE,%20saya%20tertarik%20dengan%20produk%20Anda" target="_blank" class="whatsapp-float" title="Hubungi WhatsApp Kami">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
+
+</body>
+</html>
